@@ -2,6 +2,7 @@ local Dashboard = {}
 local resources = require('scripts.models.resources')
 local Dialogue = require('scripts.models.dialogue')
 local BoxEvent = require('scripts.templates.box-event')
+local BoxList = require('scripts.templates.box-list')
 
 function Dashboard:new()
     local o = {
@@ -40,7 +41,7 @@ function Dashboard:new()
 
     -- Dialogue output test
     --local conversation = Dialogue.new('test.txt')
-    local event = BoxEvent.new()
+    local event = BoxList.new()
 
     return o
 end

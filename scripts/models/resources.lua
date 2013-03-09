@@ -5,9 +5,9 @@ local resources = {
 }
 
 local resourceNames = {
-    one = 1,
-    two = 2,
-    three = 3
+    environment = 1,
+    human = 2,
+    science = 3
 }
 
 function resources:setResource(name)
