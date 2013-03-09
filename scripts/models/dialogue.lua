@@ -8,11 +8,15 @@ local HEIGHT = 110
 local PADDING = 15
 local FILE_DIR = 'dialogue/'
 
-function Dialogue:new()
+function Dialogue.new(fileTxt)
     local o = display.newGroup()
+    o.lineCount = 0
+    o.lines = {}
+    o.filePath = system.pathForFile(FILE_DIR .. fileTxt, system.ResourcesDirectory )
 
     function o:nextLine()
-
+        o.lineCount = o.lineCount + 1
+        o[3].text = o.lines[o.lineCount]
     end
 
     local profile = display.newRect(TOP_LEFT, TOP, PROFILE_WIDTH, HEIGHT)
@@ -27,31 +31,38 @@ function Dialogue:new()
     textOutline.strokeWidth = 1
     o:insert(textOutline)
 
-    local text = display.newText('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam nibh. Vivamus vestibulum placerat elit, lobortis pellentesque turpis malesuada non. Sed lectus ligula, commodo non hendrerit id, lacinia a eros.', TOP_LEFT + PROFILE_WIDTH + PADDING, TOP + PADDING, WIDTH - PROFILE_WIDTH - (PADDING * 2), HEIGHT - (PADDING * 2), native.systemFont, 12)
-
-    local filePath = system.pathForFile(FILE_DIR .. 'test.txt', system.ResourcesDirectory )
-    local file = io.open(filePath, 'r')
+    -- Get all the lines
+    local file = io.open(o.filePath, 'r')
     for line in file:lines() do
-       print( line )  -- display the line in the terminal
+       table.insert(o.lines, line)
     end
     io.close(file)
 
---	local mech = display.newGroup()
---    mech.id = id.getId()
---    mech.type = 'a'
---
---    local mechImage = display.newRect(0, 0, 50, 50)
---    mechImage:setFillColor(0, 0, 200)
---    mech:insert(mechImage)
---
---    function mech:setPosition(x, y)
---        self.x = x
---        self.y = y
---    end
---
---    storage:addGroup(mech)
---
---	return mech
+    local text = display.newText('', TOP_LEFT + PROFILE_WIDTH + PADDING, TOP + PADDING, WIDTH - PROFILE_WIDTH - (PADDING * 2), HEIGHT - (PADDING * 2), native.systemFont, 12)
+    -- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam nibh. Vivamus vestibulum placerat elit, lobortis pellentesque turpis malesuada non. Sed lectus ligula, commodo non hendrerit id, lacinia a eros.
+    o:insert(text)
+
+    function o:destroy()
+        Runtime:removeEventListener('touch', o)
+        o:removeSelf()
+        o = nil
+    end
+
+    function o:touch(e)
+        if e.phase == 'began' then
+            self:nextLine()
+
+            print(self.lineCount)
+            if self.lineCount > table.getn(self.lines) then
+                print('delete')
+                self:destroy()
+            end
+        end
+    end
+
+    Runtime:addEventListener('touch', o)
+
+    o:nextLine()
 end
 
 return Dialogue

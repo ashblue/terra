@@ -38,7 +38,7 @@ function Dashboard:new()
     o:newStatBtn(resources[3], display.contentWidth / 3 * 2)
 
     -- Dialogue output test
-    local conversation = Dialogue.new()
+    local conversation = Dialogue.new('test.txt')
 
     return o
 end
