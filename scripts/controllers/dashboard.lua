@@ -1,6 +1,7 @@
 local Dashboard = {}
 local resources = require('scripts.models.resources')
 local Dialogue = require('scripts.models.dialogue')
+local BoxEvent = require('scripts.templates.box-event')
 
 function Dashboard:new()
     local o = {
@@ -38,7 +39,8 @@ function Dashboard:new()
     o:newStatBtn(resources[3], display.contentWidth / 3 * 2)
 
     -- Dialogue output test
-    local conversation = Dialogue.new('test.txt')
+    --local conversation = Dialogue.new('test.txt')
+    local event = BoxEvent.new()
 
     return o
 end
