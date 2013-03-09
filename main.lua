@@ -6,4 +6,4 @@
 
 display.setStatusBar(display.HiddenStatusBar)
 
-local level = require('scripts.controllers.dashboard').new()
+local intro = require('scripts.controllers.intro').new()
