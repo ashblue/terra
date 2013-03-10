@@ -19,6 +19,10 @@ local resourceNames = {
     year = 4
 }
 
+function resources:getTotal()
+    return self[1] + self[2] + self[3]
+end
+
 function resources:drawResources(name)
     for i = 1, 3 do
         resources.src[i].text = resources[i]

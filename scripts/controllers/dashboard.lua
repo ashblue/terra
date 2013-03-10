@@ -2,6 +2,7 @@ local Dashboard = {}
 local resources = require('scripts.models.resources')
 local Dialogue = require('scripts.models.dialogue')
 local Turn = require('scripts.controllers.turn')
+local planet = require('scripts.models.planet')
 
 local DEBUG = true
 
@@ -28,13 +29,6 @@ function Dashboard:new()
 
         o.tabs:insert(btn)
     end
-
-    -- background
-    local background = display.newImage('resources/dashboard/background-1.jpg')
-    background:setReferencePoint(display.TopLeftReferencePoint);
-    background.x = 0
-    background.y = 0
-    --o:insert(background)
 
     -- Draw three bars to represent stats
     o:newStatBtn(resources[1], 0)
@@ -65,7 +59,7 @@ function Dashboard:new()
         local turn = Turn.new()
     end
 
-    background:toBack()
+    --background:toBack()
 
     if DEBUG == true then
         local turn = Turn.new()

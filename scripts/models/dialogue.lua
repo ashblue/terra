@@ -55,7 +55,6 @@ function Dialogue:new(fileTxt, callback)
         end
         io.close(file)
     else
-        print('TEST TEST TEST SET SET SET SET SET SET SET SET EST ST')
         table.insert(o.lines, fileTxt[1])
     end
 

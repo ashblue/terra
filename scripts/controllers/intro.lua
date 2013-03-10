@@ -1,7 +1,7 @@
 local Intro = {}
 local dashbaord = require('scripts.controllers.dashboard')
 
-local DEBUG = false
+local DEBUG = true
 
 function Intro:new()
     o = display.newGroup()

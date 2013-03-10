@@ -6,11 +6,6 @@ local choice = require('scripts.models.choice')
 local PADDING = 4
 local LEFT_COLUMN = 215
 
-local _path = system.pathForFile('scripts/models/structures.json', system.ResourcesDirectory)
-local _file = io.open(_path, 'r') --system.ResourcesDirectory
-local _structures = json.decode(_file:read('*a'))
-io.close(_file)
-
 function BoxList:new(structures, callback)
     local o = Box:new('Structures')
 
@@ -58,7 +53,6 @@ function BoxList:new(structures, callback)
     end
 
     local btn
-    _structures = { _structures['1'] }
     for i, j in ipairs(structures) do
         btn = o:btn(j.name, j.cost.e, j.cost.h, j.cost.s)
         btn.x = (display.contentWidth - o.width) / 2 + o.padding

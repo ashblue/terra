@@ -5,6 +5,7 @@ local BoxList = require('scripts.templates.box-list')
 local BoxEvent = require('scripts.templates.box-event')
 local choice = require('scripts.models.choice')
 local resources = require('scripts.models.resources')
+local planet = require('scripts.models.planet')
 
 -- Process and swallow JSON for structures and
 local _path = system.pathForFile('scripts/models/events.json', system.ResourcesDirectory)
@@ -88,6 +89,8 @@ function Turn:new()
     function o:updateCountdown()
         resources.year.date = resources.year.date - 1
         resources.year.src.text = resources.year.date
+
+        planet:updateGraphic()
 
         if resources.year.date >= 1 then
             currentEvent = table.remove(_events)
