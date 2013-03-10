@@ -67,7 +67,7 @@ function Dialogue:new(fileTxt, callback)
 
     function o:destroy()
         if type(callback) == 'function' then
-            timer.performWithDelay( 100, callback)
+            timer.performWithDelay( 200, callback)
         end
 
         Runtime:removeEventListener('touch', self)

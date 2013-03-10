@@ -1,6 +1,7 @@
 local BoxList = {}
 local Box = require('scripts.templates.box')
 local json = require('json')
+local choice = require('scripts.models.choice')
 
 local PADDING = 3
 local LEFT_COLUMN = 200
@@ -10,7 +11,7 @@ local _file = io.open(_path, 'r') --system.ResourcesDirectory
 local _structures = json.decode(_file:read('*a'))
 io.close(_file)
 
-function BoxList.new()
+function BoxList:new(structures, callback)
     local o = Box:new('Structures')
 
     function o:btn(btnText, e, h, s)
@@ -35,31 +36,52 @@ function BoxList.new()
 
         text:toFront()
 
-        function background:touch(e)
-            if e.phase == 'began' then
-                --print(self[2])
-                self:setFillColor(0, 0, 255)
-            end
-        end
-
-        btn:addEventListener('touch', background)
+        -- BACKGROUND HIGHLIGHTING
+        --function background:touch(e)
+        --    if e.phase == 'began' then
+        --        --print(self[2])
+        --        self:setFillColor(0, 0, 255)
+        --    end
+        --end
+        --
+        --btn:addEventListener('touch', background)
 
         return btn
     end
 
+    -- Create a function that deletes everything and fires a callback
+    -- Needs to attach choice to models
 
-    local btn
-    for i, j in ipairs(_structures) do
-        btn = o:btn(j.name, j.e, j.h, j.s)
-        btn.x = (display.contentWidth - o.width) / 2 + o.padding
-        btn.y = (display.contentHeight - o.height + o[2].height) / 2 + o.padding + ((i - 1) * btn.height) + (i * 6)
-        o:insert(btn)
+    function o:destroy()
+        self:removeSelf()
+        self = nil
     end
 
+    local btn
+    _structures = { _structures['1'] }
+    for i, j in ipairs(structures) do
+        btn = o:btn(j.name, j.cost.e, j.cost.h, j.cost.s)
+        btn.x = (display.contentWidth - o.width) / 2 + o.padding
+        btn.y = (display.contentHeight - o.height + o[2].height) / 2 + o.padding + ((i - 1) * btn.height) + (i * 6)
+        btn.structure = j
 
-    -- Draw cost column
+        function btn:touch(e)
+            if e.phase == 'began' then
+                choice:setCurrent(self.structure)
+                btn:removeEventListener('touch', btn)
 
-    -- Done tab
+                if type(callback) == 'function' then
+                    timer.performWithDelay(200, callback)
+                end
+
+                o:destroy()
+            end
+        end
+
+        btn:addEventListener('touch', btn)
+
+        o:insert(btn)
+    end
 
     return o
 end

@@ -49,6 +49,7 @@ function Intro:new()
     function o:destroy()
         o:removeSelf()
         o = nil
+        dashbaord:new()
     end
 
     return o

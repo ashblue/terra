@@ -5,7 +5,7 @@ local Dialogue = require('scripts.models.dialogue')
 --local BoxList = require('scripts.templates.box-list')
 local Turn = require('scripts.controllers.turn')
 
-local DEBUG = false
+local DEBUG = true
 
 function Dashboard:new()
     local o = {
@@ -56,8 +56,9 @@ function Dashboard:new()
     timerBackground:setFillColor(0, 0, 0, 180)
     timer:insert(timerBackground)
 
-    local timerText = display.newText('1', 0, 10, native.systemFont, 26)
+    local timerText = display.newText(resources.year.date, 0, 10, native.systemFont, 26)
     timerText.x = timerBackground.width / 2
+    resources.year.src = timerText
     timer:insert(timerText)
 
     local timerDetail = display.newText('year', 0, 40, native.systemFont, 11)

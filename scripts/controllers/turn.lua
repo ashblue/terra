@@ -1,6 +1,10 @@
 local Turn = {}
 local json = require('json')
 local Dialogue = require('scripts.models.dialogue')
+local BoxList = require('scripts.templates.box-list')
+local BoxEvent = require('scripts.templates.box-event')
+local choice = require('scripts.models.choice')
+local resources = require('scripts.models.resources')
 
 -- Process and swallow JSON for structures and
 local _path = system.pathForFile('scripts/models/events.json', system.ResourcesDirectory)
@@ -18,19 +22,45 @@ function Turn:new()
     -- Get proper event
     local currentEvent = table.remove(_events)
 
-    -- Creation of dialogue warning from NPC
-    print(currentEvent.name)
-    Dialogue:new({ currentEvent.name })
+    -- Calculate success or fail and update values
+    -- Event dialogue appeaes with Success or failure message
+    function o:showEvent()
+        local chance = math.random(1, 100)
+
+        if chance > 50 then
+            BoxEvent:new('Success event', o.updateCountdown)
+        else
+            BoxEvent:new('Fail event', o.updateCountdown)
+        end
+    end
 
     -- Creation of choice box and selection
+    function o:showBoxList()
+        local structures = {}
 
-    -- Calculate success or fail and update values
+        for i, s in ipairs(currentEvent.choices) do
+            table.insert(structures, _structures[tostring(s)])
+        end
 
-    -- Event dialogue appeaes with Success or failure message
+        BoxList:new(structures, o.showEvent)
+    end
 
-    -- Update year
+    -- Creation of dialogue warning from NPC
+    Dialogue:new({ currentEvent.description }, o.showBoxList)
 
     -- Restart and do again
+        -- Update year
+    function o:updateCountdown()
+        resources.year.date = resources.year.date - 1
+        resources.year.src.text = resources.year.date
+
+        if resources.year.date >= 1 then
+            currentEvent = table.remove(_events)
+            Dialogue:new({ currentEvent.description }, o.showBoxList)
+        else
+            print('doomsday')
+        end
+    end
 
     return o
 end
