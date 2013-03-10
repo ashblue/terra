@@ -11,14 +11,17 @@ local _path = system.pathForFile('scripts/models/events.json', system.ResourcesD
 local _file = io.open(_path, 'r')
 local _events = json.decode(_file:read('*a'))
 io.close(_file)
+table.shuffle(_events)
 
 _path = system.pathForFile('scripts/models/structures.json', system.ResourcesDirectory)
 _file = io.open(_path, 'r')
 local _structures = json.decode(_file:read('*a'))
+io.close(_file)
 
 _path = system.pathForFile('scripts/models/random.json', system.ResourcesDirectory)
 _file = io.open(_path, 'r')
 local _random = json.decode(_file:read('*a'))
+io.close(_file)
 
 function Turn:new()
     local o = display.newGroup()
@@ -72,6 +75,8 @@ function Turn:new()
             _structures[tostring(s.id)].id = s.id
             table.insert(structures, _structures[tostring(s.id)])
         end
+
+        table.shuffle(structures)
 
         BoxList:new(structures, o.showEvent)
     end
