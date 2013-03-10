@@ -1,15 +1,12 @@
 [
-    // Event data
     {
         "name": "Solar Flare",
         "description": "bla blah bla",
         "warning": [
-            // Only needs one, gets pulled at random
             "Lorem Ipsum",
             "I'm a boss"
         ],
         "choices": [
-            // Needs to have ids of structures
             3,
             5,
             27
@@ -36,12 +33,10 @@
         "name": "Solar Flare",
         "description": "bla blah bla",
         "warning": [
-            // Only needs one, gets pulled at random
             "Lorem Ipsum",
             "I'm a boss"
         ],
         "choices": [
-            // Needs to have ids of structures
             3,
             5,
             27

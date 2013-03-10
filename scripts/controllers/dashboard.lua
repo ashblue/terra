@@ -1,8 +1,11 @@
 local Dashboard = {}
 local resources = require('scripts.models.resources')
 local Dialogue = require('scripts.models.dialogue')
-local BoxEvent = require('scripts.templates.box-event')
-local BoxList = require('scripts.templates.box-list')
+--local BoxEvent = require('scripts.templates.box-event')
+--local BoxList = require('scripts.templates.box-list')
+local Turn = require('scripts.controllers.turn')
+
+local DEBUG = false
 
 function Dashboard:new()
     local o = {
@@ -65,8 +68,18 @@ function Dashboard:new()
     timer.x = display.contentWidth
 
     -- Dialogue
+    function startGame()
+        local turn = Turn.new()
+    end
+
     background:toBack()
-    local conversation = Dialogue.new('intro.txt')
+
+    if DEBUG == true then
+        local turn = Turn.new()
+        return
+    end
+
+    Dialogue:new('intro.txt', startGame)
 
     return o
 end

@@ -8,15 +8,28 @@ local HEIGHT = 110
 local PADDING = 15
 local FILE_DIR = 'dialogue/'
 
-function Dialogue.new(fileTxt)
+function Dialogue:new(fileTxt, callback)
     local o = display.newGroup()
     o.lineCount = 0
     o.lines = {}
-    o.filePath = system.pathForFile(FILE_DIR .. fileTxt, system.ResourcesDirectory )
 
     function o:nextLine()
-        o.lineCount = o.lineCount + 1
-        o[3].text = o.lines[o.lineCount]
+        if type(fileTxt) == 'string' then
+            self.lineCount = self.lineCount + 1
+            self[3].text = self.lines[self.lineCount]
+        --    if self.lineCount > table.getn(self.lines) then
+        --        self:destroy()
+        --    end
+        else
+                    self.lineCount = self.lineCount + 1
+
+                self[3].text = self.lines[1]
+
+        --    print('DESTROY')
+        --    self:destroy()
+        end
+
+
     end
 
     local profile = display.newRect(TOP_LEFT, TOP, PROFILE_WIDTH, HEIGHT)
@@ -26,35 +39,52 @@ function Dialogue.new(fileTxt)
     o:insert(profile)
 
     local textOutline = display.newRect(TOP_LEFT + PROFILE_WIDTH, TOP, WIDTH - PROFILE_WIDTH, HEIGHT)
-    textOutline:setFillColor(0, 0, 0, 200)
+    textOutline:setFillColor(0, 0, 0, 240)
     textOutline:setStrokeColor(52, 170, 44, 150)
     textOutline.strokeWidth = 1
     o:insert(textOutline)
 
     -- Get all the lines
-    local file = io.open(o.filePath, 'r')
-    for line in file:lines() do
-        if line ~= '' then
-            table.insert(o.lines, line)
+    if type(fileTxt) == 'string' then
+        o.filePath = system.pathForFile(FILE_DIR .. fileTxt, system.ResourcesDirectory )
+        local file = io.open(o.filePath, 'r')
+        for line in file:lines() do
+            if line ~= '' then
+                table.insert(o.lines, line)
+            end
         end
+        io.close(file)
+    else
+        print('TEST TEST TEST SET SET SET SET SET SET SET SET EST ST')
+        table.insert(o.lines, fileTxt[1])
     end
-    io.close(file)
+
+
 
     local text = display.newText('', TOP_LEFT + PROFILE_WIDTH + PADDING, TOP + PADDING, WIDTH - PROFILE_WIDTH - (PADDING * 2), HEIGHT - (PADDING * 2), native.systemFont, 12)
     -- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam nibh. Vivamus vestibulum placerat elit, lobortis pellentesque turpis malesuada non. Sed lectus ligula, commodo non hendrerit id, lacinia a eros.
     o:insert(text)
 
     function o:destroy()
-        Runtime:removeEventListener('touch', o)
-        o:removeSelf()
-        o = nil
+        if type(callback) == 'function' then
+            timer.performWithDelay( 100, callback)
+        end
+
+        Runtime:removeEventListener('touch', self)
+        self:removeSelf()
+        self = nil
     end
 
     function o:touch(e)
-        if e.phase == 'began' then
+        if e.phase == 'ended' then
             self:nextLine()
 
-            if self.lineCount > table.getn(self.lines) then
+            if type(fileTxt) == 'string' then
+                if self.lineCount > table.getn(self.lines) then
+                    self:destroy()
+                end
+            else
+                print('DESTROY')
                 self:destroy()
             end
         end

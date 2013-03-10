@@ -49,7 +49,6 @@ function Intro:new()
     function o:destroy()
         o:removeSelf()
         o = nil
-
     end
 
     return o
