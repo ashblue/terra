@@ -22,7 +22,7 @@ function BoxEvent:new(message, callback)
         end
     end
 
-    local text = display.newText(message, (display.contentWidth - o.width) / 2 + o.padding, (display.contentHeight - o.height) / 2 + o.padding + o[2].height, TEXT_WIDTH, o.height - (o.padding * 2) - o[2].height, native.systemFont, 14)
+    local text = display.newText(message, (display.contentWidth - o.width) / 2 + o.padding, (display.contentHeight - o.height) / 2 + o.padding + o[2].height, TEXT_WIDTH, o.height - (o.padding * 2) - o[2].height, native.systemFont, 12)
     text:setReferencePoint(display.TopRightReferencePoint);
     text:setTextColor(0, 0, 0)
     o:insert(text)

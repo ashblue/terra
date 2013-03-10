@@ -28,9 +28,9 @@ function Turn:new()
         local chance = math.random(1, 100)
 
         if chance > 50 then
-            BoxEvent:new('Success event', o.updateCountdown)
+            BoxEvent:new(currentEvent.description .. currentEvent.success.message .. ' Choice: ' .. choice.current.name, o.updateCountdown)
         else
-            BoxEvent:new('Fail event', o.updateCountdown)
+            BoxEvent:new(currentEvent.description .. currentEvent.failure.message .. ' Choice: ' .. choice.current.name, o.updateCountdown)
         end
     end
 
@@ -46,7 +46,7 @@ function Turn:new()
     end
 
     -- Creation of dialogue warning from NPC
-    Dialogue:new({ currentEvent.description }, o.showBoxList)
+    Dialogue:new({ currentEvent.warning[1] }, o.showBoxList)
 
     -- Restart and do again
     function o:updateCountdown()
@@ -55,7 +55,7 @@ function Turn:new()
 
         if resources.year.date >= 1 then
             currentEvent = table.remove(_events)
-            Dialogue:new({ currentEvent.description }, o.showBoxList)
+            Dialogue:new({ currentEvent.warning[1] }, o.showBoxList)
         else
             print('doomsday')
         end
