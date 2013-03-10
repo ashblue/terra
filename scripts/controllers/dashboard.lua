@@ -57,8 +57,9 @@ function Dashboard:new()
     resources.year.src = timerText
     timer:insert(timerText)
 
-    local timerDetail = display.newText('year', 0, 40, native.systemFont, 11)
+    local timerDetail = display.newText('years', 0, 40, native.systemFont, 11)
     timerDetail.x = timerBackground.width / 2
+    resources.year.srcDetail = timerDetail
     timer:insert(timerDetail)
 
     timer:setReferencePoint(display.TopRightReferencePoint)

@@ -11,6 +11,7 @@ local planet = require('scripts.models.planet')
 local _path = system.pathForFile('scripts/models/events.json', system.ResourcesDirectory)
 local _file = io.open(_path, 'r')
 local _events = json.decode(_file:read('*a'))
+local _yearColor = 255
 io.close(_file)
 table.shuffle(_events)
 
@@ -89,6 +90,9 @@ function Turn:new()
     function o:updateCountdown()
         resources.year.date = resources.year.date - 1
         resources.year.src.text = resources.year.date
+        _yearColor = _yearColor - 25
+        resources.year.src:setTextColor(255, _yearColor, _yearColor)
+        resources.year.srcDetail:setTextColor(255, _yearColor, _yearColor)
 
         planet:updateGraphic()
 
