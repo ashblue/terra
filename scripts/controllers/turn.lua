@@ -94,6 +94,14 @@ function Turn:new()
             Dialogue:new({ currentEvent.warning[1] }, o.showBoxList)
         else
             print('doomsday')
+            local total = resources[1] + resources[2] + resources[3]
+            if total > 120 then
+                Dialogue:new('good.txt')
+            elseif total > 105 then
+                Dialogue:new('normal.txt')
+            else
+                Dialogue:new('bad.txt')
+            end
         end
     end
 

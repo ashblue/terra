@@ -1,8 +1,6 @@
 local Dashboard = {}
 local resources = require('scripts.models.resources')
 local Dialogue = require('scripts.models.dialogue')
---local BoxEvent = require('scripts.templates.box-event')
---local BoxList = require('scripts.templates.box-list')
 local Turn = require('scripts.controllers.turn')
 
 local DEBUG = true
