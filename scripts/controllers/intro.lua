@@ -1,7 +1,7 @@
 local Intro = {}
 local dashbaord = require('scripts.controllers.dashboard')
 
-local DEBUG = false
+local DEBUG = true
 
 function Intro:new()
     o = display.newGroup()
@@ -41,8 +41,8 @@ function Intro:new()
     function o:showIntro()
         transition.to( messageBackground, { alpha = 0.7, time = 3000 } )
         transition.to( message, { alpha = 1, time = 3000 } )
-        transition.to( message, { alpha = 0, time = 1000, delay = 10000 } )
-        transition.to( logo, { alpha = 1, time = 5000, delay = 10000 })
+        transition.to( message, { alpha = 0, time = 1000, delay = 9000 } )
+        transition.to( logo, { alpha = 1, time = 10000, delay = 10000 })
 
         messageBackground:toFront()
         message:toFront()

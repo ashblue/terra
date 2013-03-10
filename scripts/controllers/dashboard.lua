@@ -46,24 +46,36 @@ function Dashboard:new()
     o:newStatBtn(resources[3], display.contentWidth / 3 * 2, 'resources/dashboard/icons/s.png')
 
     -- timer counter
-    local timer = display.newGroup()
+    local clock = display.newGroup()
 
-    local timerBackground = display.newRect(0, 0, 70, 70)
-    timerBackground:setFillColor(0, 0, 0, 180)
-    timer:insert(timerBackground)
+    local timerBackground = display.newRect(0, 0, 80, 80)
+    timerBackground:setFillColor(0, 0, 0, 120)
+    clock:insert(timerBackground)
 
-    local timerText = display.newText(resources.year.date, 0, 10, native.systemFont, 26)
+    local timerText = display.newText(resources.year.date, 0, 17, native.systemFont, 24)
     timerText.x = timerBackground.width / 2
     resources.year.src = timerText
-    timer:insert(timerText)
+    clock:insert(timerText)
 
-    local timerDetail = display.newText('years', 0, 40, native.systemFont, 11)
+    local timerDetail = display.newText('years', 0, 41, native.systemFont, 11)
     timerDetail.x = timerBackground.width / 2
     resources.year.srcDetail = timerDetail
-    timer:insert(timerDetail)
+    clock:insert(timerDetail)
 
-    timer:setReferencePoint(display.TopRightReferencePoint)
-    timer.x = display.contentWidth
+    local timerRing = display.newImageRect('resources/dashboard/ring.png', 60, 60)
+    timerRing.x = timerBackground.width / 2
+    timerRing.y = timerBackground.height / 2
+    timerRing.alpha = 0.15
+
+    function o:ringRotate()
+        timerRing:rotate(0.5)
+    end
+    timer.performWithDelay( 60, o.ringRotate, 0 )
+
+    clock:insert(timerRing)
+
+    clock:setReferencePoint(display.TopRightReferencePoint)
+    clock.x = display.contentWidth
 
     -- Dialogue
     function startGame()
