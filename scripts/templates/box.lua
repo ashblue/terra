@@ -24,12 +24,17 @@ function Box:new(titleText)
     local background = display.newRect(0, 0, WIDTH, HEIGHT)
     background.x = display.contentWidth / 2
     background.y = display.contentHeight / 2
+
+    background:setFillColor(0, 0, 0, 200)
+    background:setStrokeColor(52, 170, 44, 150)
+    background.strokeWidth = 1
+
     o:insert(background)
 
     local title = display.newText(titleText, 0, (display.contentHeight - HEIGHT) / 2 + PADDING, native.systemFont, 22)
     title.x = display.contentWidth / 2
     title.y = title.y - (title.height / 2)
-    title:setTextColor(0, 0, 0)
+    title:setTextColor(220, 220, 220)
     o:insert(title)
 
     o.y = o.y + TOP_OFFSET

@@ -18,11 +18,11 @@ function BoxList:new(structures, callback)
         btn:insert(text)
 
         local background = display.newRoundedRect(0, 0, LEFT_COLUMN, text.height + PADDING, 3)
-        background:setFillColor(255, 0, 0)
+        background:setFillColor(40, 40, 40, 200)
         btn:insert(background)
 
         local textPoints = display.newText('E' .. e .. ' - H' .. h .. ' - S' .. s, background.width + 10, 0, native.systemFont, 14)
-        textPoints:setTextColor(0, 0, 0)
+        textPoints:setTextColor(220, 220, 220)
         btn:insert(textPoints)
 
         btn:setReferencePoint(display.TopLeftReferencePoint)

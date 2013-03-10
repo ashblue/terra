@@ -16,7 +16,11 @@ function Dashboard:new()
     function o:newStatBtn(text, location, imgSrc)
         local btn = display.newGroup()
         local background = display.newRect(location, display.contentHeight - 40, display.contentWidth / 3, 40)
-        background:setFillColor(100, 100, 100)
+        local g = graphics.newGradient(
+            { 45, 41, 41 },
+            { 95, 90, 90 },
+            "up" )
+        background:setFillColor(g)
         btn:insert(background)
 
         local icon = display.newImageRect(imgSrc, 30, 30)
@@ -30,7 +34,8 @@ function Dashboard:new()
         table.insert(resources.src, text)
         o.text:insert(text)
 
-        local divider = display.newRect(location + background.width, display.contentHeight - 40, 1, 40)
+        local divider = display.newRect(location + background.width - 1, display.contentHeight - 40, 2, 40)
+        divider:setFillColor(40, 40, 40)
 
         o.tabs:insert(btn)
     end
