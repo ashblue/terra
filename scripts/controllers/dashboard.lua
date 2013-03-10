@@ -23,18 +23,12 @@ function Dashboard:new()
         local text = display.newText(text, location, display.contentHeight - background.height, native.systemFont, 16)
         text.x = text.x + ((background.width - text.width) / 2)
         text.y = text.y + ((background.height - text.height) / 2) - 3
+        table.insert(resources.src, text)
         o.text:insert(text)
 
         local divider = display.newRect(location + background.width, display.contentHeight - 40, 1, 40)
 
         o.tabs:insert(btn)
-    end
-
-    function o:updateStats()
-        for i = 1, 3 do
-                print(resources[i])
-            o.text[i].text = resources[i]
-        end
     end
 
     -- background

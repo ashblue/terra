@@ -10,6 +10,8 @@ resources.year = {
     date = 10
 }
 
+resources.src = {}
+
 local resourceNames = {
     environment = 1,
     human = 2,
@@ -17,8 +19,10 @@ local resourceNames = {
     year = 4
 }
 
-function resources:setResource(name)
-
+function resources:drawResources(name)
+    for i = 1, 3 do
+        resources.src[i].text = resources[i]
+    end
 end
 
 return resources

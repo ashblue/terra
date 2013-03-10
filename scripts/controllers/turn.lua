@@ -16,6 +16,10 @@ _path = system.pathForFile('scripts/models/structures.json', system.ResourcesDir
 _file = io.open(_path, 'r')
 local _structures = json.decode(_file:read('*a'))
 
+_path = system.pathForFile('scripts/models/random.json', system.ResourcesDirectory)
+_file = io.open(_path, 'r')
+local _random = json.decode(_file:read('*a'))
+
 function Turn:new()
     local o = display.newGroup()
 
@@ -23,15 +27,41 @@ function Turn:new()
     local currentEvent = table.remove(_events)
 
     -- Calculate success or fail and update values
-    -- Event dialogue appeaes with Success or failure message
     function o:showEvent()
-        local chance = math.random(1, 100)
+        -- TODO Get proper random value based on choice
+        local chance = math.random(1, 10)
+        local e = 0
+        local h = 0
+        local s = 0
 
-        if chance > 50 then
-            BoxEvent:new(currentEvent.description .. currentEvent.success.message .. ' Choice: ' .. choice.current.name, o.updateCountdown)
-        else
-            BoxEvent:new(currentEvent.description .. currentEvent.failure.message .. ' Choice: ' .. choice.current.name, o.updateCountdown)
+        -- TODO Set proper succeed chance
+        local benchmark
+        for i, c in ipairs(currentEvent.choices) do
+            if c.id == choice.current.id then
+                benchmark = _random[c.random]
+            end
         end
+
+        if chance < benchmark then
+            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description .. ' ' .. currentEvent.success.message, o.updateCountdown)
+            -- TODO Add success points
+            e = e + currentEvent.success.points.e
+            h = h + currentEvent.success.points.h
+            s = s + currentEvent.success.points.s
+        else
+            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description .. ' ' .. currentEvent.failure.message, o.updateCountdown)
+            -- TODO Subtract fail points
+            e = e + currentEvent.failure.points.e
+            h = h + currentEvent.failure.points.h
+            s = s + currentEvent.failure.points.s
+        end
+
+        -- TODO Update score values
+        resources[1] = resources[1] + e + choice.current.cost.e
+        resources[2] = resources[2] + h + choice.current.cost.h
+        resources[3] = resources[3] + s + choice.current.cost.s
+        print(resources[1], resources[2], resources[3])
+        resources:drawResources()
     end
 
     -- Creation of choice box and selection
@@ -39,6 +69,7 @@ function Turn:new()
         local structures = {}
 
         for i, s in ipairs(currentEvent.choices) do
+            _structures[tostring(s.id)].id = s.id
             table.insert(structures, _structures[tostring(s.id)])
         end
 
