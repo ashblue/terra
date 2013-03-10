@@ -2,8 +2,9 @@ local BoxEvent = {}
 local Box = require('scripts.templates.box')
 
 local TEXT_WIDTH = 200
+local IMAGE_PATH = 'resources/dashboard/events/'
 
-function BoxEvent:new(title, message, callback)
+function BoxEvent:new(title, message, src, callback)
 	local o = Box:new('Event: ' .. title)
 
     function o:destroy()
@@ -28,8 +29,11 @@ function BoxEvent:new(title, message, callback)
     o:insert(text)
 
     print(o.width - text.width - (o.padding * 3), text.height)
-    local image = display.newRect(text.x + o.padding, text.y, o.width - text.width - (o.padding * 3), text.height)
-    image:setFillColor(100, 100, 100)
+    --local image = display.newRect(text.x + o.padding, text.y, o.width - text.width - (o.padding * 3), text.height)
+    local image = display.newImageRect(IMAGE_PATH .. src, 92, 134)
+    image:setReferencePoint(display.TopLeftReferencePoint)
+    image.x = text.x + o.padding
+    image.y = text.y
     o:insert(image)
 
     Runtime:addEventListener('touch', o)

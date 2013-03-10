@@ -50,14 +50,14 @@ function Turn:new()
 
         if chance < benchmark then
             _statusMessage = currentEvent.success.message
-            BoxEvent:new(currentEvent.name, 'O: ' .. choice.current.name .. '. ' .. currentEvent.description, o.successMessage)
+            BoxEvent:new(currentEvent.name, 'O: ' .. choice.current.name .. '. ' .. currentEvent.description, currentEvent.image, o.successMessage)
             -- TODO Add success points
             e = e + currentEvent.success.points.e
             h = h + currentEvent.success.points.h
             s = s + currentEvent.success.points.s
         else
             _statusMessage = currentEvent.failure.message
-            BoxEvent:new(currentEvent.name, 'O: ' .. choice.current.name .. '. ' .. currentEvent.description, o.successMessage)
+            BoxEvent:new(currentEvent.name, 'O: ' .. choice.current.name .. '. ' .. currentEvent.description, currentEvent.image, o.successMessage)
             -- TODO Subtract fail points
             e = e + currentEvent.failure.points.e
             h = h + currentEvent.failure.points.h

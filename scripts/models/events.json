@@ -2,6 +2,7 @@
 
     {
         "name": "Solar Storms",
+        "image": "solar-storm.jpg",
         "description": "The planet is rocked by a long series of solar flares. The sudden spikes in activity wreak havoc on the colony's electrical systems.",
         "warning": [
             "We've been tracking solar activity, and it will be reaching it peak soon. We should brace for the worst.",
@@ -52,6 +53,7 @@
 
     {
         "name": "Algal Bloom",
+        "image": "algal-bloom.jpg",
         "description": "Native algae populations explode as a result of the changing climate. Ocean life and water access is crucially threatened.",
         "warning": [
             "The terraforming process always has consequences. It looks like the oceans are seeing rampant and unforeseen algae growth.",
@@ -92,6 +94,7 @@
 
     {
         "name": "Radiation Clouds",
+        "image": "radiation-clouds.jpg",
         "description": "Traveling pockets of radiation are a constant threat on this alien world. These anomalies threaten all life on the colony.",
         "warning": [
             "All planets undergoing terraforming are hostile, this one more than most. Data shows an enormous cloud of something dangerous headed our way.",
@@ -132,6 +135,7 @@
 
     {
         "name": "Worker Strikes",
+        "image": "worker-strikes.jpg",
         "description": "The science of terraforming is built on the hard work of people filling many different roles. If the population isn't happy, nothing gets done.",
         "warning": [
             "Not everyone who joined this project knew what to expect. Moral is becoming dangerously low. If unrest stays at this level, it will threaten the entire project.",
@@ -182,6 +186,7 @@
 
     {
         "name": "Drought",
+        "image": "drought.jpg",
         "description": "Weather patterns are never very predictable, especially as the terraforming process changes the atmosphere. Right now, a drought is strangling the colony's resource.",
         "warning": [
             "Our resources are fine for now, but if this dry-spell continues, this project could be ruined by the weather. It wouldn't tbe first time nature impeded our efforts.",
@@ -222,6 +227,7 @@
 
     {
         "name": "Volcanic Activity",
+        "image": "volcanic-activity.jpg",
         "description": "Volcanic exlosions have filled the air with dangerous gases and polluted our fields with ash, dangerous to our plants and animal life.",
         "warning": [
             "This planet's geology is still very much active. You may have felt some tremors lately. I'm afraid that's only the beginning.",
@@ -262,6 +268,7 @@
 
     {
         "name": "Animal Attacks",
+        "image": "animal-attacks.jpg",
         "description": "Roaming bands of wild animals have been on the rise, threatening not just the livestock, but the scientists and workers in the field.",
         "warning": [
             "We just had our second wild animal attack on a scientist this week alone. This planet's native wildlife is more dangerous than we imagined. Something must be done.",
@@ -311,7 +318,8 @@
     },
 
     {
-        "name": "Equipment Degradation",
+        "name": "Equipment Degredation",
+        "image": "equipment-degredation.jpg",
         "description": "The hostile climate is slowly eroding the project's necessary equipment. Repairs and replacements may prove costly for us.",
         "warning": [
             "We're living in the future, but we still get equipment that breaks down faster than expected. We have to manage our resources wisely.",
@@ -352,6 +360,7 @@
 
     {
         "name": "Political Crisis",
+        "image": "political-crisis.jpg",
         "description": "The colonist ship is having doubts about your command. They are threatening to withhold supplies and moral is suffering.",
         "warning": [
             "One of the reasons I signed up for this job was to escape all the damn politics. I should have known you can't escape politics.",
@@ -392,6 +401,7 @@
 
     {
         "name": "Mega-Storm",
+        "image": "mega-storm.jpg",
         "description": "Massive floods and ferocious winds threaten to destroy structures and abolish sensitive agriculture efforts.",
         "warning": [
             "Our weather predictions don't look to good. This coming storm will make the monsoons back home look like a sprinkle.",
