@@ -1,7 +1,7 @@
 local Intro = {}
 local dashbaord = require('scripts.controllers.dashboard')
 
-local DEBUG = true
+local DEBUG = false
 
 function Intro:new()
     o = display.newGroup()
@@ -24,23 +24,30 @@ function Intro:new()
     messageBackground.alpha = 0
     o:insert(messageBackground)
 
-    --local message = display.newRect(0, 0, 100, 100)
     local message = display.newImageRect('resources/intro/text.png', 495, 280) -- 852, 480
-
     message.alpha = 0
     message:setReferencePoint(display.CenterReferencePoint);
     message.x = display.contentWidth / 2
     message.y = display.contentHeight / 2
     o:insert(message)
 
+    local logo = display.newImageRect('resources/intro/logo.png', 495, 280) -- 852, 480
+    logo.alpha = 0
+    logo:setReferencePoint(display.CenterReferencePoint);
+    logo.x = display.contentWidth / 2
+    logo.y = display.contentHeight / 2
+    o:insert(logo)
+
     function o:showIntro()
-        --messageBackground.alpha = 0.7
-        --message.alpha = 1
         transition.to( messageBackground, { alpha = 0.7, time = 3000 } )
         transition.to( message, { alpha = 1, time = 3000 } )
+        transition.to( message, { alpha = 0, time = 1000, delay = 10000 } )
+        transition.to( logo, { alpha = 1, time = 5000, delay = 10000 })
+
         messageBackground:toFront()
         message:toFront()
-        timer.performWithDelay( 12000, o.destroy)
+        logo:toFront()
+        timer.performWithDelay( 20000, o.destroy)
     end
 
     -- Create ship offscreen and fly it into view until it shrinks and dissapears
