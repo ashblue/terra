@@ -13,11 +13,16 @@ function Dashboard:new()
     }
     setmetatable(o, { __index = Dashboard })
 
-    function o:newStatBtn(text, location)
+    function o:newStatBtn(text, location, imgSrc)
         local btn = display.newGroup()
         local background = display.newRect(location, display.contentHeight - 40, display.contentWidth / 3, 40)
         background:setFillColor(100, 100, 100)
         btn:insert(background)
+
+        local icon = display.newImageRect(imgSrc, 30, 30)
+        icon:setReferencePoint(display.TopLeftReferencePoint)
+        icon.x = location + 5
+        icon.y = display.contentHeight - 40 + 5
 
         local text = display.newText(text, location, display.contentHeight - background.height, native.systemFont, 16)
         text.x = text.x + ((background.width - text.width) / 2)
@@ -31,9 +36,9 @@ function Dashboard:new()
     end
 
     -- Draw three bars to represent stats
-    o:newStatBtn(resources[1], 0)
-    o:newStatBtn(resources[2], display.contentWidth / 3)
-    o:newStatBtn(resources[3], display.contentWidth / 3 * 2)
+    o:newStatBtn(resources[1], 0, 'resources/dashboard/icons/e.png')
+    o:newStatBtn(resources[2], display.contentWidth / 3, 'resources/dashboard/icons/h.png')
+    o:newStatBtn(resources[3], display.contentWidth / 3 * 2, 'resources/dashboard/icons/s.png')
 
     -- timer counter
     local timer = display.newGroup()
