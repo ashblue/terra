@@ -26,7 +26,7 @@ function Dialogue.new(fileTxt)
     o:insert(profile)
 
     local textOutline = display.newRect(TOP_LEFT + PROFILE_WIDTH, TOP, WIDTH - PROFILE_WIDTH, HEIGHT)
-    textOutline:setFillColor(0, 0, 0, 0)
+    textOutline:setFillColor(0, 0, 0, 200)
     textOutline:setStrokeColor(52, 170, 44, 150)
     textOutline.strokeWidth = 1
     o:insert(textOutline)
@@ -34,7 +34,9 @@ function Dialogue.new(fileTxt)
     -- Get all the lines
     local file = io.open(o.filePath, 'r')
     for line in file:lines() do
-       table.insert(o.lines, line)
+        if line ~= '' then
+            table.insert(o.lines, line)
+        end
     end
     io.close(file)
 
@@ -52,9 +54,7 @@ function Dialogue.new(fileTxt)
         if e.phase == 'began' then
             self:nextLine()
 
-            print(self.lineCount)
             if self.lineCount > table.getn(self.lines) then
-                print('delete')
                 self:destroy()
             end
         end

@@ -1,7 +1,15 @@
 local Intro = {}
+local dashbaord = require('scripts.controllers.dashboard')
+
+local DEBUG = true
 
 function Intro:new()
     o = display.newGroup()
+
+    if DEBUG == true then
+        dashbaord.new()
+        return
+    end
 
     -- Set background image (make sure it scales properly)
     local background = display.newImageRect('resources/intro/background.jpg', display.contentWidth, display.contentHeight)
@@ -41,6 +49,7 @@ function Intro:new()
     function o:destroy()
         o:removeSelf()
         o = nil
+
     end
 
     return o
