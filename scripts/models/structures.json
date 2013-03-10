@@ -1,37 +1,19 @@
-[
-    {
-        "name": "Solar Farm",
-        "e": 2,
-        "h": 0,
-        "s": 1,
-        "owned": false
+{
+    "1": {
+        "name": "solar farm",
+        "cost": {
+            "e": 0,
+            "h": 0,
+            "s": 0
+        }
     },
-    {
-        "name": "Solar Farm",
-        "e": 2,
-        "h": 0,
-        "s": 1,
-        "owned": false
-    },
-    {
-        "name": "Solar Farm",
-        "e": 2,
-        "h": 0,
-        "s": 1,
-        "owned": false
-    },
-    {
-        "name": "Solar Farm",
-        "e": 2,
-        "h": 0,
-        "s": 1,
-        "owned": false
-    },
-    {
-        "name": "Solar Farm",
-        "e": 2,
-        "h": 0,
-        "s": 1,
-        "owned": false
+
+    "2": {
+        "name": "solar farm",
+        "cost": {
+            "e": 0,
+            "h": 0,
+            "s": 0
+        }
     }
-]
+}

@@ -1,0 +1,66 @@
+[
+    // Event data
+    {
+        "name": "Solar Flare",
+        "description": "bla blah bla",
+        "warning": [
+            // Only needs one, gets pulled at random
+            "Lorem Ipsum",
+            "I'm a boss"
+        ],
+        "choices": [
+            // Needs to have ids of structures
+            3,
+            5,
+            27
+        ],
+        "success": {
+            "message": "blah",
+            "points": {
+                "e": 0,
+                "h": 0,
+                "s": 0
+            }
+        },
+        "failure": {
+            "message": "blah",
+            "points": {
+                "e": 0,
+                "h": 0,
+                "s": 0
+            }
+        }
+    },
+
+    {
+        "name": "Solar Flare",
+        "description": "bla blah bla",
+        "warning": [
+            // Only needs one, gets pulled at random
+            "Lorem Ipsum",
+            "I'm a boss"
+        ],
+        "choices": [
+            // Needs to have ids of structures
+            3,
+            5,
+            27
+        ],
+        "success": {
+            "message": "blah",
+            "points": {
+                "e": 0,
+                "h": 0,
+                "s": 0
+            }
+        },
+        "failure": {
+            "message": "blah",
+            "points": {
+                "e": 0,
+                "h": 0,
+                "s": 0
+            }
+        }
+    }
+]

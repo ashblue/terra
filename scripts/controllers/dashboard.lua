@@ -53,7 +53,7 @@ function Dashboard:new()
     timerBackground:setFillColor(0, 0, 0, 180)
     timer:insert(timerBackground)
 
-    local timerText = display.newText('10', 0, 10, native.systemFont, 26)
+    local timerText = display.newText('1', 0, 10, native.systemFont, 26)
     timerText.x = timerBackground.width / 2
     timer:insert(timerText)
 
