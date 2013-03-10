@@ -5,6 +5,11 @@ local planet = {
     loc = 'resources/dashboard/background/'
 }
 
+local WIDTH = 495 -- 495
+local HEIGHT = 280 -- 280
+local X = 0
+local Y = 0
+
 local _graphics = {
     terrible = planet.loc .. 'terrible.jpg',
     bad = planet.loc .. 'bad.jpg',
@@ -32,16 +37,16 @@ function planet:updateGraphic()
         src = _graphics.terrible
     end
 
-    planet.graphic = display.newImage(src)
+    planet.graphic = display.newImageRect(src, WIDTH, HEIGHT)
     planet.graphic:setReferencePoint(display.TopLeftReferencePoint);
-    planet.graphic.x = 0
-    planet.graphic.y = 0
+    planet.graphic.x = X
+    planet.graphic.y = Y
     planet.graphic:toBack()
 end
 
-planet.graphic = display.newImage(_graphics.terrible)
+planet.graphic = display.newImageRect(_graphics.terrible, WIDTH, HEIGHT)
 planet.graphic:setReferencePoint(display.TopLeftReferencePoint);
-planet.graphic.x = 0
-planet.graphic.y = 0
+planet.graphic.x = X
+planet.graphic.y = Y
 
 return planet
