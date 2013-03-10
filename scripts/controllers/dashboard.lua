@@ -4,7 +4,7 @@ local Dialogue = require('scripts.models.dialogue')
 local Turn = require('scripts.controllers.turn')
 local planet = require('scripts.models.planet')
 
-local DEBUG = true
+local DEBUG = false
 
 function Dashboard:new()
     local o = {

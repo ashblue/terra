@@ -1,7 +1,7 @@
 local Intro = {}
 local dashbaord = require('scripts.controllers.dashboard')
 
-local DEBUG = true
+local DEBUG = false
 
 function Intro:new()
     o = display.newGroup()
@@ -25,7 +25,7 @@ function Intro:new()
     o:insert(messageBackground)
 
     --local message = display.newRect(0, 0, 100, 100)
-    local message = display.newImage('resources/intro/text.png')
+    local message = display.newImageRect('resources/intro/text.png', 495, 280) -- 852, 480
 
     message.alpha = 0
     message:setReferencePoint(display.CenterReferencePoint);

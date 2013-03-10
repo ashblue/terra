@@ -3,8 +3,8 @@ local Box = require('scripts.templates.box')
 
 local TEXT_WIDTH = 200
 
-function BoxEvent:new(message, callback)
-	local o = Box:new('Event')
+function BoxEvent:new(title, message, callback)
+	local o = Box:new('Event: ' .. title)
 
     function o:destroy()
         Runtime:removeEventListener('touch', self)
