@@ -1,28 +1,137 @@
 {
-    "3": {
-        "name": "solar farm",
+    "1": {
+        "name": "Solar Farm",
         "cost": {
-            "e": 0,
+            "e": 5,
+            "h": 0,
+            "s": 1
+        }
+    },
+
+    "2": {
+        "name": "Robotics Facility",
+        "cost": {
+            "e": 3,
+            "h": 2,
+            "s": 2
+        }
+    },
+
+    "3": {
+        "name": "Electrical Engineering Facility",
+        "cost": {
+            "e": -1,
+            "h": -1,
+            "s": 8
+        }
+    },
+
+    "4": {
+        "name": "Mining Operation",
+        "cost": {
+            "e": 6,
             "h": 0,
             "s": 0
         }
     },
 
     "5": {
-        "name": "solar farm",
+        "name": "Energy Shield",
         "cost": {
-            "e": 0,
-            "h": 0,
+            "e": -2,
+            "h": 8,
             "s": 0
         }
     },
 
-    "27": {
-        "name": "solar farm",
+    "6": {
+        "name": "Algaculture Facility",
+        "cost": {
+            "e": 3,
+            "h": 2,
+            "s": 1
+        }
+    },
+
+    "7": {
+        "name": "Water Filtration Plant",
+        "cost": {
+            "e": 3,
+            "h": 3,
+            "s": 0
+        }
+    },
+
+    "8": {
+        "name": "Genomics Facility",
+        "cost": {
+            "e": 1,
+            "h": 0,
+            "s": 5
+        }
+    },
+
+    "9": {
+        "name": "Hydroponics Lab",
+        "cost": {
+            "e": 2,
+            "h": 2,
+            "s": 2
+        }
+    },
+
+    "10": {
+        "name": "Barracks",
+        "cost": {
+            "e": -2,
+            "h": 8,
+            "s": 0
+        }
+    },
+
+    "11": {
+        "name": "Wellness Center",
+        "cost": {
+            "e": 2,
+            "h": 6,
+            "s": -2
+        }
+    },
+
+    "12": {
+        "name": "Communications Facility",
         "cost": {
             "e": 0,
-            "h": 0,
+            "h": 4,
+            "s": 2
+        }
+    },
+
+    "13": {
+        "name": "Weather Modification System",
+        "cost": {
+            "e": 4,
+            "h": 2,
+            "s": -2
+        }
+    },
+
+    "14": {
+        "name": "Defense Department",
+        "cost": {
+            "e": 1,
+            "h": 4,
+            "s": 1
+        }
+    },
+
+    "15": {
+        "name": "Asteroid Mining Operation",
+        "cost": {
+            "e": 8,
+            "h": -2,
             "s": 0
         }
     }
+
 }

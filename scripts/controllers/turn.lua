@@ -39,7 +39,7 @@ function Turn:new()
         local structures = {}
 
         for i, s in ipairs(currentEvent.choices) do
-            table.insert(structures, _structures[tostring(s)])
+            table.insert(structures, _structures[tostring(s.id)])
         end
 
         BoxList:new(structures, o.showEvent)
@@ -49,7 +49,6 @@ function Turn:new()
     Dialogue:new({ currentEvent.description }, o.showBoxList)
 
     -- Restart and do again
-        -- Update year
     function o:updateCountdown()
         resources.year.date = resources.year.date - 1
         resources.year.src.text = resources.year.date

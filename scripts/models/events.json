@@ -1,60 +1,431 @@
 [
+
     {
-        "name": "Solar Flare",
-        "description": "bla blah bla",
+        "name": "Solar Storms",
+        "description": "The planet is rocked by a long series of solar flare. The sudden spikes in activity reak havoc on the colonies electrical systems.",
         "warning": [
-            "Lorem Ipsum",
-            "I'm a boss"
+            "We've been tracking solar activity, and it will be reaching it peak soon. We should brace for the worst.",
         ],
         "choices": [
-            3,
-            5,
-            27
+            {
+                "id": 1,
+                "random": "a"
+            },
+
+            {
+                "id": 2,
+                "random": "c"
+            },
+
+            {
+                "id": 3,
+                "random": "e"
+            },
+
+            {
+                "id": 4,
+                "random": "d"
+            },
+
+            {
+                "id": 5,
+                "random": "b"
+            }
         ],
         "success": {
-            "message": "blah",
+            "message": "The weather the worst of what the sun has to offer, and even use the excess energy to your benefit.",
             "points": {
-                "e": 0,
+                "e": 10,
                 "h": 0,
-                "s": 0
+                "s": -4
             }
         },
         "failure": {
-            "message": "blah",
+            "message": "Lacking time to properly prepare, the sudden electrical storms severely damage core equipment.",
+            "points": {
+                "e": 2,
+                "h": 0,
+                "s": -6
+            }
+        }
+    },
+
+    {
+        "name": "Algal Bloom",
+        "description": "Native algae populations explode as a result of the changing climate. Ocean life and water access is crucially threatened.",
+        "warning": [
+            "The terraforming process always has consequences. It looks like the oceans are seeing rampant and unforeseen algae growth.",
+        ],
+        "choices": [
+            {
+                "id": 6,
+                "random": "a"
+            },
+
+            {
+                "id": 7,
+                "random": "d"
+            },
+
+            {
+                "id": 8,
+                "random": "e"
+            }
+        ],
+        "success": {
+            "message": "Your preparations paid off. Scientists have maintained adequate water supplies, stabilized the ocean, and learned a great deal in the process.",
+            "points": {
+                "e": 6,
+                "h": -2,
+                "s": 2
+            }
+        },
+        "failure": {
+            "message": "Despite your best efforts, ocean life systems are ravaged by the algal bloom and colony water resources teeter on the brink.",
+            "points": {
+                "e": -4,
+                "h": -2,
+                "s": 4
+            }
+        }
+    },
+
+    {
+        "name": "Radiation Clouds",
+        "description": "Traveling pockets of radiation are a constant threat on this alien world. These anomalies threaten all life on the colony.",
+        "warning": [
+            "All planets undergoing terraforming are hostile, this one more than most. Data shows an enormous cloud of something dangerous headed our way.",
+        ],
+        "choices": [
+            {
+                "id": 5,
+                "random": "b"
+            },
+
+            {
+                "id": 2,
+                "random": "c"
+            },
+
+            {
+                "id": 9,
+                "random": "e"
+            }
+        ],
+        "success": {
+            "message": "The colony prepared for the worst. Most of our personnel remain healthy and, while we lost a lot of time, our life systems are thriving.",
+            "points": {
+                "e": 10,
+                "h": 0,
+                "s": -4
+            }
+        },
+        "failure": {
+            "message": "We have lost not just valuable personnel, but friends, and our organic resources are terribly damaged. Moving on from this will be difficult.",
+            "points": {
+                "e": -4,
+                "h": -2,
+                "s": 2
+            }
+        }
+    },
+
+    {
+        "name": "Worker Strikes",
+        "description": "The science of terraforming is built on the hard work of people filling many different roles. If the population isn't happy, nothing gets done.",
+        "warning": [
+            "Not everyone who joined this project knew what to expect. Moral is becoming dangerously low and threatens the entire project.",
+        ],
+        "choices": [
+            {
+                "id": 9,
+                "random": "b"
+            },
+
+            {
+                "id": 6,
+                "random": "d"
+            },
+
+            {
+                "id": 8,
+                "random": "e"
+            },
+
+            {
+                "id": 9,
+                "random": "a"
+            },
+
+            {
+                "id": 6,
+                "random": "c"
+            }
+        ],
+        "success": {
+            "message": "Despite some serious dissent, the population has buckled down and recommitted themselves to the project. We learned a valuable lesson here.",
+            "points": {
+                "e": -2,
+                "h": 6,
+                "s": 2
+            }
+        },
+        "failure": {
+            "message": "Massive strike have continued, leaving the colony short-handed and struggling to finish many crucial projects.",
             "points": {
                 "e": 0,
-                "h": 0,
+                "h": -6,
                 "s": 0
             }
         }
     },
 
     {
-        "name": "Solar Flare",
-        "description": "bla blah bla",
+        "name": "Drought",
+        "description": "Weather patterns are never very predictable, especially as the terraforming process changes the atmosphere. Right now, a drought is strangling the colony's resource.",
         "warning": [
-            "Lorem Ipsum",
-            "I'm a boss"
+            "Our resources are fine for now, but if this dry-spell continues, this project could be ruined by the weather. It wouldn't tbe first time nature impeded our efforts.",
         ],
         "choices": [
-            3,
-            5,
-            27
+            {
+                "id": 9,
+                "random": "e"
+            },
+
+            {
+                "id": 13,
+                "random": "a"
+            },
+
+            {
+                "id": 8,
+                "random": "c"
+            }
         ],
         "success": {
-            "message": "blah",
+            "message": "The drought is almost over Commander. Our advanced research has helped us overcome even nature's wrath.",
             "points": {
-                "e": 0,
+                "e": -2,
+                "h": 0,
+                "s": 8
+            }
+        },
+        "failure": {
+            "message": "This drought has forced us to slow our progress and the population is struggling under strict water rationing. We'll survive, but not comfortably.",
+            "points": {
+                "e": -3,
+                "h": -3,
+                "s": 0
+            }
+        }
+    },
+
+    {
+        "name": "Volcanic Activity",
+        "description": "Volcanic exlosions have filled the air with dangerous gases and polluted our fields with ashe, dangerous to our plants and animal life.",
+        "warning": [
+            "This planet's geology is still very much active. You may have felt some tremors lately. I'm afraid that's only the beginning.",
+        ],
+        "choices": [
+            {
+                "id": 9,
+                "random": "a"
+            },
+
+            {
+                "id": 6,
+                "random": "b"
+            },
+
+            {
+                "id": 8,
+                "random": "c"
+            }
+        ],
+        "success": {
+            "message": "Improvements in our ",
+            "points": {
+                "e": 10,
+                "h": 0,
+                "s": -4
+            }
+        },
+        "failure": {
+            "message": "Lacking time to properly prepare, the sudden electrical storms severely damage core equipment.",
+            "points": {
+                "e": 2,
+                "h": 0,
+                "s": -6
+            }
+        }
+    },
+
+    {
+        "name": "Animal Attacks",
+        "description": "Roaming bands of wild animals have been on the rise, threatening not just the livestock, but the scientists and workers in the field.",
+        "warning": [
+            "We just had our second wild animal attack on a scientist this week alone. This planet's native wildlife is more dangerous than we imagined. Something must be done.",
+        ],
+        "choices": [
+            {
+                "id": 10,
+                "random": "d"
+            },
+
+            {
+                "id": 14,
+                "random": "a"
+            },
+
+            {
+                "id": 2,
+                "random": "c"
+            },
+
+            {
+                "id": 12,
+                "random": "b"
+            },
+
+            {
+                "id": 8,
+                "random": "e"
+            }
+        ],
+        "success": {
+            "message": "We have increased safety both inside and outside the compound. The wildlife still post a risk, but we've never been more prepared for danger than now.",
+            "points": {
+                "e": -2,
+                "h": 5,
+                "s": 3
+            }
+        },
+        "failure": {
+            "message": "Our increased security isn't enough. We've lost too many livestock and have had to reduce the numbers of worker hours spent outside the compount.",
+            "points": {
+                "e": -3,
+                "h": -2,
+                "s": -1
+            }
+        }
+    },
+
+    {
+        "name": "Equipment Degradation",
+        "description": "The hostile climate is slowly eroding the project's necessary equipment. Repairs and replacements may prove costly for those unprepared.",
+        "warning": [
+            "We're living in the future, but we still get equipment that breaks down faster than expected. We have to manage our resources wisely.",
+        ],
+        "choices": [
+            {
+                "id": 2,
+                "random": "e"
+            },
+
+            {
+                "id": 1,
+                "random": "c"
+            },
+
+            {
+                "id": 15,
+                "random": "a"
+            }
+        ],
+        "success": {
+            "message": "Thanks to some valuable resource gathering, we have managed to keep the most important equipment working while we await a resupply.",
+            "points": {
+                "e": 6,
                 "h": 0,
                 "s": 0
             }
         },
         "failure": {
-            "message": "blah",
+            "message": "We have rationed what we can, but many critical systems are still barely functioning. ",
             "points": {
-                "e": 0,
+                "e": -2,
                 "h": 0,
+                "s": -4
+            }
+        }
+    },
+
+    {
+        "name": "Political Crisis",
+        "description": "The colonist ship is having doubts about your command. They are threatening to withhold supplies and moral is suffering.",
+        "warning": [
+            "One of the reasons I signed up for this job was to escape all the damn politics. I should have known you can't escape politics.",
+        ],
+        "choices": [
+            {
+                "id": 12,
+                "random": "a"
+            },
+
+            {
+                "id": 11,
+                "random": "e"
+            },
+
+            {
+                "id": 4,
+                "random": "d"
+            }
+        ],
+        "success": {
+            "message": "Thanks to your political acumen, you managed to calm the colonists and maintain control on this rock. Well done.",
+            "points": {
+                "e": -2,
+                "h": 8,
                 "s": 0
+            }
+        },
+        "failure": {
+            "message": "The damned main fleet has us by the... well, you know. This is costly. Damned fools.",
+            "points": {
+                "e": -2,
+                "h": -1,
+                "s": -1
+            }
+        }
+    },
+
+    {
+        "name": "Mega-Storm",
+        "description": "Massive floods and ferocious winds threaten to destroy structures and abolish sensitive agriculture efforts.",
+        "warning": [
+            "Our weather predictions don't look to good. This coming storm will make the monsoons back home look like a sprinkle.",
+        ],
+        "choices": [
+            {
+                "id": 10,
+                "random": "d"
+            },
+
+            {
+                "id": 13,
+                "random": "a"
+            },
+
+            {
+                "id": 7,
+                "random": "c"
+            }
+        ],
+        "success": {
+            "message": "Haha, I laugh in the face of a little rain. Thanks to your efforts, we're just a little water-logged.",
+            "points": {
+                "e": -1,
+                "h": 2,
+                "s": 5
+            }
+        },
+        "failure": {
+            "message": "Our agriculture projects are severely damaged. I almost drowned myself. This is a major setback.",
+            "points": {
+                "e": -4,
+                "h": 2,
+                "s": -2
             }
         }
     }
