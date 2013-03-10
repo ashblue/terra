@@ -12,6 +12,7 @@ local _path = system.pathForFile('scripts/models/events.json', system.ResourcesD
 local _file = io.open(_path, 'r')
 local _events = json.decode(_file:read('*a'))
 local _yearColor = 255
+local _statusMessage
 io.close(_file)
 table.shuffle(_events)
 
@@ -48,13 +49,15 @@ function Turn:new()
         end
 
         if chance < benchmark then
-            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description .. ' ' .. currentEvent.success.message, o.updateCountdown)
+            _statusMessage = currentEvent.success.message
+            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description, o.successMessage)
             -- TODO Add success points
             e = e + currentEvent.success.points.e
             h = h + currentEvent.success.points.h
             s = s + currentEvent.success.points.s
         else
-            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description .. ' ' .. currentEvent.failure.message, o.updateCountdown)
+            _statusMessage = currentEvent.failure.message
+            BoxEvent:new('O: ' .. choice.current.name .. '. ' .. currentEvent.description, o.successMessage)
             -- TODO Subtract fail points
             e = e + currentEvent.failure.points.e
             h = h + currentEvent.failure.points.h
@@ -65,7 +68,6 @@ function Turn:new()
         resources[1] = resources[1] + e + choice.current.cost.e
         resources[2] = resources[2] + h + choice.current.cost.h
         resources[3] = resources[3] + s + choice.current.cost.s
-        print(resources[1], resources[2], resources[3])
         resources:drawResources()
     end
 
@@ -85,6 +87,10 @@ function Turn:new()
 
     -- Creation of dialogue warning from NPC
     Dialogue:new({ currentEvent.warning[1] }, o.showBoxList)
+
+    function o:successMessage()
+        Dialogue:new({ _statusMessage }, o.updateCountdown)
+    end
 
     -- Restart and do again
     function o:updateCountdown()
