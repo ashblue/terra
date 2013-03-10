@@ -3,8 +3,8 @@ local Box = require('scripts.templates.box')
 local json = require('json')
 local choice = require('scripts.models.choice')
 
-local PADDING = 3
-local LEFT_COLUMN = 200
+local PADDING = 4
+local LEFT_COLUMN = 215
 
 local _path = system.pathForFile('scripts/models/structures.json', system.ResourcesDirectory)
 local _file = io.open(_path, 'r') --system.ResourcesDirectory
@@ -26,7 +26,7 @@ function BoxList:new(structures, callback)
         background:setFillColor(255, 0, 0)
         btn:insert(background)
 
-        local textPoints = display.newText('E ' .. e .. ' - H ' .. h .. ' - S ' .. s, background.width + 10, 0, native.systemFont, 14)
+        local textPoints = display.newText('E' .. e .. ' - H' .. h .. ' - S' .. s, background.width + 10, 0, native.systemFont, 14)
         textPoints:setTextColor(0, 0, 0)
         btn:insert(textPoints)
 
