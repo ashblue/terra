@@ -58,8 +58,6 @@ function Dialogue:new(fileTxt, callback)
         table.insert(o.lines, fileTxt[1])
     end
 
-
-
     local text = display.newText('', TOP_LEFT + PROFILE_WIDTH + PADDING, TOP + PADDING, WIDTH - PROFILE_WIDTH - (PADDING * 2), HEIGHT - (PADDING * 2), native.systemFont, 12)
     -- Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nec diam nibh. Vivamus vestibulum placerat elit, lobortis pellentesque turpis malesuada non. Sed lectus ligula, commodo non hendrerit id, lacinia a eros.
     o:insert(text)
