@@ -12,7 +12,7 @@
         "name": "Robotics Facility",
         "cost": {
             "e": 3,
-            "h": 2,
+            "h": 1,
             "s": 2
         }
     },
@@ -22,7 +22,7 @@
         "cost": {
             "e": 0,
             "h": 0,
-            "s": 8
+            "s": 6
         }
     },
 
@@ -39,8 +39,8 @@
         "name": "Energy Shield",
         "cost": {
             "e": 0,
-            "h": 8,
-            "s": 0
+            "h": 5,
+            "s": 1
         }
     },
 
@@ -84,7 +84,7 @@
         "name": "Barracks",
         "cost": {
             "e": 0,
-            "h": 8,
+            "h": 6,
             "s": 0
         }
     },
@@ -92,7 +92,7 @@
     "11": {
         "name": "Wellness Center",
         "cost": {
-            "e": 2,
+            "e": 1,
             "h": 6,
             "s": 0
         }
@@ -103,7 +103,7 @@
         "cost": {
             "e": 0,
             "h": 4,
-            "s": 2
+            "s": 3
         }
     },
 
@@ -128,7 +128,7 @@
     "15": {
         "name": "Asteroid Mining Operation",
         "cost": {
-            "e": 8,
+            "e": 6,
             "h": 0,
             "s": 0
         }

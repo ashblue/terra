@@ -2,7 +2,7 @@
 
     {
         "name": "Solar Storms",
-        "description": "The planet is rocked by a long series of solar flare. The sudden spikes in activity reak havoc on the colonies electrical systems.",
+        "description": "The planet is rocked by a long series of solar flares. The sudden spikes in activity wreak havoc on the colony's electrical systems.",
         "warning": [
             "We've been tracking solar activity, and it will be reaching it peak soon. We should brace for the worst.",
         ],
@@ -33,7 +33,7 @@
             }
         ],
         "success": {
-            "message": "The weather the worst of what the sun has to offer, and even use the excess energy to your benefit.",
+            "message": "We've handled the worst of what the sun has to offer. We've even used the excess energy to our benefit.",
             "points": {
                 "e": 10,
                 "h": 0,
@@ -134,11 +134,11 @@
         "name": "Worker Strikes",
         "description": "The science of terraforming is built on the hard work of people filling many different roles. If the population isn't happy, nothing gets done.",
         "warning": [
-            "Not everyone who joined this project knew what to expect. Moral is becoming dangerously low and threatens the entire project.",
+            "Not everyone who joined this project knew what to expect. Moral is becoming dangerously low. If unrest stays at this level, it will threaten the entire project.",
         ],
         "choices": [
             {
-                "id": 9,
+                "id": 14,
                 "random": "b"
             },
 
@@ -153,7 +153,7 @@
             },
 
             {
-                "id": 9,
+                "id": 11,
                 "random": "a"
             },
 
@@ -222,7 +222,7 @@
 
     {
         "name": "Volcanic Activity",
-        "description": "Volcanic exlosions have filled the air with dangerous gases and polluted our fields with ashe, dangerous to our plants and animal life.",
+        "description": "Volcanic exlosions have filled the air with dangerous gases and polluted our fields with ash, dangerous to our plants and animal life.",
         "warning": [
             "This planet's geology is still very much active. You may have felt some tremors lately. I'm afraid that's only the beginning.",
         ],
@@ -243,7 +243,7 @@
             }
         ],
         "success": {
-            "message": "Improvements in our ",
+            "message": "Thankfully, with some smart improvements in our agriculture projects, we adapted to and overcome the threat.",
             "points": {
                 "e": 10,
                 "h": 0,
@@ -293,7 +293,7 @@
             }
         ],
         "success": {
-            "message": "We have increased safety both inside and outside the compound. The wildlife still post a risk, but we've never been more prepared for danger than now.",
+            "message": "We have increased safety both inside and outside the compound. The wildlife are still dangerous, but we've never been more prepared than now.",
             "points": {
                 "e": -2,
                 "h": 5,
@@ -301,7 +301,7 @@
             }
         },
         "failure": {
-            "message": "Our increased security isn't enough. We've lost too many livestock and have had to reduce the numbers of worker hours spent outside the compount.",
+            "message": "Our increased security isn't enough. We've lost too many livestock and have had to reduce the numbers of worker hours spent outside the compound.",
             "points": {
                 "e": -3,
                 "h": -2,
@@ -312,7 +312,7 @@
 
     {
         "name": "Equipment Degradation",
-        "description": "The hostile climate is slowly eroding the project's necessary equipment. Repairs and replacements may prove costly for those unprepared.",
+        "description": "The hostile climate is slowly eroding the project's necessary equipment. Repairs and replacements may prove costly for us.",
         "warning": [
             "We're living in the future, but we still get equipment that breaks down faster than expected. We have to manage our resources wisely.",
         ],
@@ -413,7 +413,7 @@
             }
         ],
         "success": {
-            "message": "Haha, I laugh in the face of a little rain. Thanks to your efforts, we're just a little water-logged.",
+            "message": "We laugh in the face of a little rain. Thanks to your efforts, we're just a little water-logged.",
             "points": {
                 "e": -1,
                 "h": 2,
