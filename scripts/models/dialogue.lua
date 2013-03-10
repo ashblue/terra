@@ -17,23 +17,17 @@ function Dialogue:new(fileTxt, callback)
         if type(fileTxt) == 'string' then
             self.lineCount = self.lineCount + 1
             self[3].text = self.lines[self.lineCount]
-        --    if self.lineCount > table.getn(self.lines) then
-        --        self:destroy()
-        --    end
         else
-                    self.lineCount = self.lineCount + 1
-
-                self[3].text = self.lines[1]
-
-        --    print('DESTROY')
-        --    self:destroy()
+            self.lineCount = self.lineCount + 1
+            self[3].text = self.lines[1]
         end
-
-
     end
 
-    local profile = display.newRect(TOP_LEFT, TOP, PROFILE_WIDTH, HEIGHT)
-    profile:setFillColor(100, 100, 100)
+    --local profile = display.newRect(TOP_LEFT, TOP, PROFILE_WIDTH, HEIGHT)
+    local profile = display.newImageRect('resources/dashboard/terrance.jpg', PROFILE_WIDTH, HEIGHT)
+    profile:setReferencePoint(display.TopLeftReferencePoint);
+    profile.x = TOP_LEFT
+    profile.y = TOP
     profile:setStrokeColor(52, 170, 44, 150)
     profile.strokeWidth = 1
     o:insert(profile)

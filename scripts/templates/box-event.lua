@@ -27,6 +27,7 @@ function BoxEvent:new(message, callback)
     text:setTextColor(0, 0, 0)
     o:insert(text)
 
+    print(o.width - text.width - (o.padding * 3), text.height)
     local image = display.newRect(text.x + o.padding, text.y, o.width - text.width - (o.padding * 3), text.height)
     image:setFillColor(100, 100, 100)
     o:insert(image)
