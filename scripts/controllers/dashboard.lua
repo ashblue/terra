@@ -23,16 +23,43 @@ function Dashboard:new()
         background:setFillColor(g)
         btn:insert(background)
 
-        local icon = display.newImageRect(imgSrc, 30, 30)
+        local icon = display.newImageRect(imgSrc, 54, 30)
+        icon.alpha = 0.8
         icon:setReferencePoint(display.TopLeftReferencePoint)
         icon.x = location + 5
         icon.y = display.contentHeight - 40 + 5
 
-        local text = display.newText(text, location, display.contentHeight - background.height, native.systemFont, 16)
-        text.x = text.x + ((background.width - text.width) / 2)
-        text.y = text.y + ((background.height - text.height) / 2) - 3
-        table.insert(resources.src, text)
-        o.text:insert(text)
+        --local barGroup = display.newGroup()
+        --local barBackground = display.newRect(location + 60, display.contentHeight - 27, 90, 15)
+        --barBackground:setFillColor(40, 40, 40)
+        --barGroup:insert(barBackground)
+        --
+        --local bar = display.newRect(location + 62, display.contentHeight - 25, 86, 11)
+        --barGroup:insert(bar)
+        --
+        --bar:setFillColor(120, 120, 120)
+        --table.insert(resources.bar, bar)
+
+        local barGroup = display.newGroup()
+        local barBackground = display.newRect(0, 0, 90, 15)
+        barBackground:setFillColor(40, 40, 40)
+        barGroup:insert(barBackground)
+
+        local bar = display.newRect(2, 2, 4, 11)
+        bar:setReferencePoint(display.TopLeftReferencePoint)
+        barGroup:insert(bar)
+
+        barGroup.x = location + 60
+        barGroup.y = display.contentHeight - 27
+
+        bar:setFillColor(120, 120, 120)
+        table.insert(resources.bar, bar)
+        --
+        --local text = display.newText(text, location, display.contentHeight - background.height, native.systemFont, 16)
+        --text.x = text.x + ((background.width - text.width) / 2)
+        --text.y = text.y + ((background.height - text.height) / 2) - 3
+        --table.insert(resources.src, text)
+        --o.text:insert(text)
 
         local divider = display.newRect(location + background.width - 1, display.contentHeight - 40, 2, 40)
         divider:setFillColor(40, 40, 40)

@@ -5,12 +5,16 @@ local resources = {
     1
 }
 
+local BAR_WIDTH = 86
+local BAR_PADDING = 10
+
 resources.year = {
     src = nil,
     date = 10
 }
 
 resources.src = {}
+resources.bar = {}
 
 local resourceNames = {
     environment = 1,
@@ -25,7 +29,13 @@ end
 
 function resources:drawResources(name)
     for i = 1, 3 do
-        resources.src[i].text = resources[i]
+        local total = resources[i] + BAR_PADDING
+        if (total < 1) then
+            total = 1
+        end
+
+        resources.bar[i].x = resources.bar[i].x + ((total - resources.bar[i].width) / 2)
+        resources.bar[i].width = total
     end
 end
 

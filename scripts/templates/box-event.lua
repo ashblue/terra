@@ -28,8 +28,6 @@ function BoxEvent:new(title, message, src, callback)
     text:setTextColor(220, 220, 220)
     o:insert(text)
 
-    print(o.width - text.width - (o.padding * 3), text.height)
-    --local image = display.newRect(text.x + o.padding, text.y, o.width - text.width - (o.padding * 3), text.height)
     local image = display.newImageRect(IMAGE_PATH .. src, 92, 134)
     image:setReferencePoint(display.TopLeftReferencePoint)
     image.x = text.x + o.padding
