@@ -26,8 +26,26 @@ _file = io.open(_path, 'r')
 local _random = json.decode(_file:read('*a'))
 io.close(_file)
 
+local DEBUG = false
+
 function Turn:new()
     local o = display.newGroup()
+
+    function o:credits()
+--local message = display.newImageRect('resources/intro/text.png', 495, 280)
+        local creditBackground = display.newRect(0, 0, display.contentWidth, display.contentHeight)
+        creditBackground:setFillColor(0, 0, 0, 100)
+
+        local creditText = display.newImageRect('resources/dashboard/credits.png', 495, 280)
+        creditText:setReferencePoint(display.TopLeftReferencePoint)
+        creditText.x = 0
+        creditText.y = 0
+    end
+
+    if DEBUG == true then
+        o:credits()
+        return
+    end
 
     -- Get proper event
     local currentEvent = table.remove(_events)
@@ -108,13 +126,16 @@ function Turn:new()
         else
             print('doomsday')
             local total = resources[1] + resources[2] + resources[3]
+            local ending
             if total > 120 then
-                Dialogue:new('good.txt')
+                ending = 'good.txt'
             elseif total > 105 then
-                Dialogue:new('normal.txt')
+                ending = 'normal.txt'
             else
-                Dialogue:new('bad.txt')
+                ending = 'bad.txt'
             end
+
+            Dialogue:new(ending, o.credits)
         end
     end
 
